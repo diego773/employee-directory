@@ -5,7 +5,7 @@ import "./style.css";
 function SearchForm(props) {
     return (
         <nav className="navbar navbar-light bg-light justify-content-center">
-            <form className="mb-3 align-items-center">
+            <form className="mb-3 align-items-center" onClick={props.handleFormSubmit}>
                 <input
                     value={props.search}
                     onChange={props.handleInputChange}
@@ -15,9 +15,6 @@ function SearchForm(props) {
                     placeholder="Search for employees"
                     id="search"
                 />
-                <button type="submit" onClick={props.handleFormSubmit} className="btn btn-success">
-                    Search
-                </button>
             </form>
         </nav>
     );
