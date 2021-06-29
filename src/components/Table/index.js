@@ -2,22 +2,22 @@ import React from "react";
 import Wrapper from "../Wrapper/index";
 
 function Table(props) {
-  if (props.employees !== undefined) {
-    {
-      props.employees.map((employees) => {
-        // console.log("map", employees);
-        return (
-          <Wrapper
-            key={employees.id.value}
-            firstName={employees.firstName}
-            lastName={employees.lastName}
-            email={employees.email}
-            phone={employees.phoneNumber}
-          />
-        );
-      });
-    }
-  }
+  // if (props.employees !== undefined) {
+  //   {
+  //     props.employees.map((employees) => {
+  //       // console.log("map", employees);
+  //       return (
+  //         <Wrapper
+  //           key={employees.id.value}
+  //           firstName={employees.firstName}
+  //           lastName={employees.lastName}
+  //           email={employees.email}
+  //           phone={employees.phoneNumber}
+  //         />
+  //       );
+  //     });
+  //   }
+  // }
   return (
     <table className="table">
       <thead>
@@ -39,17 +39,18 @@ function Table(props) {
         </tr>
       </thead>
       <tbody>
-        {props.employees.map((employees) => {
-          return (
-            <Wrapper
-              key={employees.id.value}
-              firstName={employees.firstName}
-              lastName={employees.lastName}
-              email={employees.email}
-              phone={employees.phoneNumber}
-            />
-          );
-        })}
+        {props.employees &&
+          props.employeesmap((employees) => {
+            return (
+              <Wrapper
+                key={employees.id.value}
+                firstName={employees.firstName}
+                lastName={employees.lastName}
+                email={employees.email}
+                phone={employees.phoneNumber}
+              />
+            );
+          })}
       </tbody>
     </table>
   );

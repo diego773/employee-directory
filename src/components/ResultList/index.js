@@ -50,7 +50,7 @@ class ResultList extends React.Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <Table results={this.state.results} />
+        <Table results={this.state.employees} />
         <Wrapper />
       </div>
     );
