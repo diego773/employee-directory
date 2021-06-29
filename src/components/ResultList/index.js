@@ -1,48 +1,60 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import API from "../../utils/API";
+import Table from "../Table/index";
+import Search from "../Search/index";
+import Wrapper from "../Wrapper/index";
 
-function ResultList() {
-  const [state, setState] = useState([]);
-  // const [employees, setEmployees] = useState("");
-
+class ResultList extends React.Component {
+  state = {
+    search: "",
+    employees: [],
+    results: [],
+    error: "",
+  };
   // When the component mounts, get a list of all employees
-  useEffect(() => {
+  componentDidMount() {
     API.getRandomEmployee()
-      .then((employees) => {
-        setState(employees[0]);
-      })
+      .then((res) => this.setState({ employees: res.data.results }))
       .catch((err) => console.log(err));
-  });
-  console.log("state", state);
-  return (
-    <div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th className="col">Name</th>
-            <th className="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="col">Mark Otto</td>
-            <td className="col">mark@mail.com</td>
-          </tr>
+  }
 
-          {state.map((employees) => {
-            return (
-              <tr>
-                <td className="col">
-                  {employees.name.first} {employees.name.last}
-                </td>
-                <td className="col">{employees.email}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
+  handleInputChange = (event) => {
+    if (event.target.name === "search") {
+      const value = event.target.search;
+      this.setState({
+        search: value,
+      });
+    }
+  };
+
+  // When the form is submitted, search the Random user API for `this.state.search`
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    API.getRandomEmployee(this.state.search)
+      .then((res) => {
+        if (res.data.results === "error") {
+          throw new Error(res.data.message);
+        }
+        this.setState({ results: res.data.message, error: "" });
+      })
+      .catch((err) => this.setState({ error: err.message }));
+  };
+
+  render() {
+    console.log("employees", this.state.employees);
+
+    return (
+      <div>
+        <Search
+          value={this.state.search}
+          handleFormSubmit={this.handleFormSubmit}
+          handleInputChange={this.handleInputChange}
+        />
+        <Table results={this.state.results} />
+        <Wrapper />
+      </div>
+    );
+  }
 }
 
 export default ResultList;
