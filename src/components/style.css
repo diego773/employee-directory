@@ -1,9 +1,10 @@
-nav.navbar {
-    overflow: auto;
-    margin-bottom: 10px;
+.jumbotron {
+  overflow: auto;
+  margin-bottom: 10px;
+  background-color: aquamarine;
 }
 
 form.search button[type="submit"] {
-    float: center;
-    margin-top: 10px;
+  float: center;
+  margin-top: 10px;
 }

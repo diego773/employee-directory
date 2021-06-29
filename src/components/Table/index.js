@@ -32,22 +32,20 @@ function Table(props) {
             <span onClick={() => props.sortBy("email")}>Email</span>
           </th>
           <th className="col">
-            <span onClick={() => props.sortBy("phoneNumber")}>
-              Phone Number
-            </span>
+            <span onClick={() => props.sortBy("cell")}>Cell</span>
           </th>
         </tr>
       </thead>
       <tbody>
         {props.employees &&
-          props.employeesmap((employees) => {
+          props.employees.map((employees) => {
             return (
               <Wrapper
                 key={employees.id.value}
-                firstName={employees.firstName}
-                lastName={employees.lastName}
+                firstName={employees.name.first}
+                lastName={employees.name.last}
                 email={employees.email}
-                phone={employees.phoneNumber}
+                cell={employees.cell}
               />
             );
           })}

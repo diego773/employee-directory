@@ -28,17 +28,17 @@ class ResultList extends React.Component {
   };
 
   // When the form is submitted, search the Random user API for `this.state.search`
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    API.getRandomEmployee(this.state.search)
-      .then((res) => {
-        if (res.data.results === "error") {
-          throw new Error(res.data.message);
-        }
-        this.setState({ results: res.data.message, error: "" });
-      })
-      .catch((err) => this.setState({ error: err.message }));
-  };
+  // handleFormSubmit = (event) => {
+  //   event.preventDefault();
+  //   API.getRandomEmployee(this.state.search)
+  //     .then((res) => {
+  //       if (res.data.results === "error") {
+  //         throw new Error(res.data.message);
+  //       }
+  //       this.setState({ results: res.data.message, error: "" });
+  //     })
+  //     .catch((err) => this.setState({ error: err.message }));
+  // };
 
   render() {
     console.log("employees", this.state.employees);
@@ -50,7 +50,7 @@ class ResultList extends React.Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <Table results={this.state.employees} />
+        <Table employees={this.state.employees} />
         <Wrapper />
       </div>
     );

@@ -2,11 +2,11 @@ import React from "react";
 
 function Wrapper(props) {
   return (
-    <tr>
+    <tr className="table-header">
       <td>{props.firstName}</td>
       <td>{props.lastName}</td>
       <td>{props.email}</td>
-      <td>{props.phoneNumber}</td>
+      <td>{props.cell}</td>
     </tr>
   );
 }

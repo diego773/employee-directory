@@ -1,13 +1,61 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.display-4 {
+  font-size: 50px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: rgb(235, 15, 118);
+}
+
+.message {
+  font-size: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: cadetblue;
+}
+
+.container {
+  background-color: rgb(246, 246, 141);
+  background-color: transparent;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+.form-control {
+  background-color: rgb(186, 186, 243);
+  color: rgb(8, 8, 8);
+}
+
+.mb-3 {
+  background-color: transparent;
+}
+
+.btn {
+  background-color: rgb(241, 140, 140);
+}
+
+.table {
+  background-color: rgb(241, 228, 241);
+  color: gray;
+}
+
+.col {
+  background-color: transparent;
+  color: rgb(134, 128, 128);
+}
+
+.table-header {
+  background-color: transparent;
 }
