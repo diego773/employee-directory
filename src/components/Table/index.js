@@ -24,8 +24,8 @@ function Table(props) {
       </thead>
       <tbody>
         {props.employees.map((employees) => {
-          console.log("map", map);
-          return (
+if (props.employees !== undefined) {//run the map function}
+return (
             <Wrapper
               key={employees.id.value}
               firstName={employees.firstName}
