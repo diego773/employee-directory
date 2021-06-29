@@ -3,7 +3,7 @@ import React from "react";
 // Using the datalist element we can create an array from props.employees
 function Search(props) {
   return (
-    <nav className="navbar navbar-light bg justify-content-center">
+    <nav className="navbar navbar-light justify-content-center">
       <form className="mb-3 align-items-center">
         <input
           value={props.search}

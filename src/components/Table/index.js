@@ -42,6 +42,7 @@ function Table(props) {
             return (
               <Wrapper
                 key={employees.id.value}
+                picture={employees.image}
                 firstName={employees.name.first}
                 lastName={employees.name.last}
                 email={employees.email}
