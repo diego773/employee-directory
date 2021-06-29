@@ -2,6 +2,22 @@ import React from "react";
 import Wrapper from "../Wrapper/index";
 
 function Table(props) {
+  if (props.employees !== undefined) {
+    {
+      props.employees.map((employees) => {
+        // console.log("map", employees);
+        return (
+          <Wrapper
+            key={employees.id.value}
+            firstName={employees.firstName}
+            lastName={employees.lastName}
+            email={employees.email}
+            phone={employees.phoneNumber}
+          />
+        );
+      });
+    }
+  }
   return (
     <table className="table">
       <thead>
@@ -24,8 +40,7 @@ function Table(props) {
       </thead>
       <tbody>
         {props.employees.map((employees) => {
-if (props.employees !== undefined) {//run the map function}
-return (
+          return (
             <Wrapper
               key={employees.id.value}
               firstName={employees.firstName}
